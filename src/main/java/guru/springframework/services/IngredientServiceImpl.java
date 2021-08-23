@@ -53,6 +53,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Mono<IngredientCommand> saveIngredientCommand(IngredientCommand command) {
+        log.debug("RECIPE ID IS: " + command.getRecipeId());
         Recipe recipe = recipeReactiveRepository.findById(command.getRecipeId()).block();
 
         if (recipe == null) {
